@@ -7,7 +7,7 @@ on:
 
 env:
   HARBOR_REGISTRY: 210.90.24.172:8080
-  HARBOR_PROJECT: resttemplateserver
+  HARBOR_PROJECT: restproject/stud1
   IMAGE_NAME: resttemplateserver
 
 jobs:
