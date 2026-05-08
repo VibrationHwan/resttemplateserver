@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: resttemplateserver
-          image: yklee2002/resttemplateserver:latest
+          image: vibrationhwan/resttemplateserver:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -24,15 +24,9 @@ spec:
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:mysql://mysql:3306/bookdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
             - name: SPRING_DATASOURCE_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: username
+              value: root
             - name: SPRING_DATASOURCE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: password
+              value: root1234
           readinessProbe:
             httpGet:
               path: /books
