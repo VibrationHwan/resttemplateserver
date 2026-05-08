@@ -16,7 +16,11 @@ spec:
     spec:
       containers:
         - name: resttemplateserver
+<<<<<<< HEAD
           image: vibrationhwan/resttemplateserver:latest
+=======
+          image: 210.90.24.172:8080/restproject/leeyoungkon/resttemplateserver:89116ccb1a0dc38720068cc4c7b28ea15f5ccab5
+>>>>>>> 1a6fcfedcd15e0c9d39dcb705f01d15e36d000c8
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -25,6 +29,7 @@ spec:
               value: "jdbc:mysql://mysql:3306/bookdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
             - name: SPRING_DATASOURCE_USERNAME
               value: root
+<<<<<<< HEAD
             - name: SPRING_DATASOURCE_PASSWORD
               value: root1234
           readinessProbe:
@@ -39,6 +44,11 @@ spec:
               port: 8080
             initialDelaySeconds: 30
             periodSeconds: 15
+=======
+            - name: SPRING_DATASOURCE_PASSWORD    
+              value: root1234
+          
+>>>>>>> 1a6fcfedcd15e0c9d39dcb705f01d15e36d000c8
 ---
 apiVersion: v1
 kind: Service
@@ -51,13 +61,5 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 30101
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: mysql-secret
-type: Opaque
-stringData:
-  username: root
-  password: root1234
+      nodePort: 30102
+
